@@ -1,3 +1,4 @@
+import annotations.BookInfo;
 import annotations.ISBN;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -7,17 +8,14 @@ public class Book {
     @ISBN
    //@org.hibernate.validator.constraints.ISBN
     private String isbn;
+    private int id;
 
-    private String email;
-
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    @BookInfo
+    private String title;
+    @BookInfo
+    private String author;
+    @BookInfo
+    private String yearPublished;
 
     public boolean isValid(){
         boolean isValid = false;
@@ -40,12 +38,77 @@ public class Book {
         return isValid;
     }
 
+    public Book(String isbn, int id, String title, String author) {
+        this.isbn = isbn;
+        this.id = id;
+        this.title = title;
+        this.author = author;
+    }
+
+    public Book(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getIsbn() {
         return isbn;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getYearPublished() {
+        return yearPublished;
+    }
+
+    public void setYearPublished(String yearPublished) {
+        this.yearPublished = yearPublished;
+    }
+
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(!(o instanceof Book)){
+            return false;
+        }else {
+            return this.isbn.equals(((Book) o).getIsbn());
+        }
+    }
+
+    public void displayBook(){
+        String separator = "; ";
+        StringBuilder str = new StringBuilder();
+        str.append(isbn)
+                .append(separator)
+                .append(id)
+                .append(separator)
+                .append(title)
+                .append(separator)
+                .append(author);
+        System.out.println(str.toString());
     }
 }
 
