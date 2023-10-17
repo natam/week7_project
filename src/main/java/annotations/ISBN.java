@@ -1,11 +1,5 @@
 package annotations;
 
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
-import jdk.jfr.SettingDefinition;
-
-import javax.annotation.RegEx;
-import java.beans.JavaBean;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

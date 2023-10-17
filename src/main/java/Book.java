@@ -1,9 +1,6 @@
 import annotations.ISBN;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-
-import javax.annotation.RegEx;
 import java.lang.reflect.Field;
 
 public class Book {
@@ -11,8 +8,6 @@ public class Book {
    //@org.hibernate.validator.constraints.ISBN
     private String isbn;
 
-    @Email
-    @NotNull
     private String email;
 
 
