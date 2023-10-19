@@ -35,6 +35,7 @@ public class Main {
             System.out.println(violation.getMessage());
         }
         System.out.println("-------------------");
+        //Collections
         Library myLibrary = new Library();
         myLibrary.addBook(myBook);
         myLibrary.addBook(new Book("113208098", 2, "Book2", "natallia"));
@@ -53,5 +54,20 @@ public class Main {
         myLibrary.displayBooks();
         myLibrary.displayFavorites();
 
+        System.out.println("************************");
+        //Queue
+        Member member1 = new Member("Nadine");
+        Member member2 = new Member("Musie");
+        Member member3 = new Member("Natallia");
+
+        BorrowQueue borrowRequests = new BorrowQueue();
+        borrowRequests.addRequest(new RequestToBorrow(3, member1, myLibrary.searchBookByTitle("Book2")));
+        borrowRequests.addRequest(new RequestToBorrow(1, member2, myLibrary.searchBookByTitle("Book3")));
+        borrowRequests.addRequest(new RequestToBorrow(5, member3, myLibrary.searchBookByTitle("Book3")));
+        borrowRequests.addRequest(new RequestToBorrow(2, member3, myLibrary.searchBookByTitle("Book1")));
+        borrowRequests.displayRequests();
+        System.out.println("************************");
+        borrowRequests.processRequest();
+        borrowRequests.displayRequests();
     }
 }

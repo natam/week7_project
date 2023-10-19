@@ -19,6 +19,8 @@ public class Book {
 
     private double price;
 
+    private boolean isAvailable = true;
+
     public boolean isValid(){
         boolean isValid = false;
         Field[] fields = this.getClass().getDeclaredFields();
@@ -106,6 +108,14 @@ public class Book {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 
     @Override

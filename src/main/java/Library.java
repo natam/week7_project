@@ -81,6 +81,10 @@ public class Library {
         }
     }
 
+    public Book searchBookByTitle(String title){
+        return books.stream().filter(book -> book.getTitle().equals(title)).findFirst().get();
+    }
+
     public void sortBooksByTitle(){
         List<Book> sorted = books.stream().sorted(Comparator.comparing(Book::getTitle)).toList();
     }
