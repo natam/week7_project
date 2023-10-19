@@ -81,6 +81,10 @@ public class Library {
         }
     }
 
+    public void sortBooksByTitle(){
+        List<Book> sorted = books.stream().sorted(Comparator.comparing(Book::getTitle)).toList();
+    }
+
     public void updateBook(Book oldBook, Book newBook) {
         deleteBook(oldBook);
         addBook(newBook);
