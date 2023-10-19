@@ -15,7 +15,9 @@ public class Book {
     @BookInfo
     private String author;
     @BookInfo
-    private String yearPublished;
+    private int yearPublished;
+
+    private double price;
 
     public boolean isValid(){
         boolean isValid = false;
@@ -43,6 +45,23 @@ public class Book {
         this.id = id;
         this.title = title;
         this.author = author;
+    }
+
+    public Book(String isbn, int id, String title, String author, int yearOfPublication, double price) {
+        this.isbn = isbn;
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.yearPublished = yearOfPublication;
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public Book(int id) {
@@ -77,11 +96,11 @@ public class Book {
         this.author = author;
     }
 
-    public String getYearPublished() {
+    public int getYearPublished() {
         return yearPublished;
     }
 
-    public void setYearPublished(String yearPublished) {
+    public void setYearPublished(int yearPublished) {
         this.yearPublished = yearPublished;
     }
 
