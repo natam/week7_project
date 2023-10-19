@@ -3,6 +3,7 @@ package streams;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamsTasks {
     public static void main(String[] args) {
@@ -31,8 +32,8 @@ public class StreamsTasks {
         //task 4
         System.out.println("**************");
         List<String> strs = Arrays.asList("apple", "banana", "cherry");
-        String newStr = strs.stream().reduce("", (abs, i) -> abs.concat(i).concat(","));
-        String reverseStr = strs.stream().sorted(Comparator.reverseOrder()).reduce("",  (abs, i) -> abs.concat(i).concat(","));
+        String newStr = strs.stream().collect(Collectors.joining(","));
+        String reverseStr = strs.stream().sorted(Comparator.reverseOrder()).collect(Collectors.joining(","));
         System.out.println(newStr);
         System.out.println(reverseStr);
         //task 5
